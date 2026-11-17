@@ -1,6 +1,6 @@
 package org.Card;
 
 public interface IOperations {
-    double availableFunds();
-    boolean acceptPayment(double suma);
+    boolean cardLimitReached(double sum);
+    boolean acceptPayment(double sum);
 }
