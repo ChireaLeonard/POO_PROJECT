@@ -1,6 +1,6 @@
 package org.example;
 
-public class ContCurent extends ContBancar{
+public abstract class ContCurent extends ContBancar{
 
     @Override
     public void retragere(double sum) {

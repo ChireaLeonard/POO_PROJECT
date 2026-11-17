@@ -1,6 +1,6 @@
 package org.example;
 
-public class ContEconomii extends ContBancar {
+public abstract class ContEconomii extends ContBancar {
     //CONSTANTA PENTRU MINIM LA CONT ECONOMII
     //static deoarece daca nu ar fi static, ar exista erori la compilare
     private static final double SOLD_ECONOMII_MINIM = 100.0;

@@ -34,4 +34,9 @@ public abstract class ContBancar implements OperatiiBancare {
     public ContBancar(String iban, String numeBeneficiar) {
         this(iban,0.0,numeBeneficiar,Moneda.EUR);
     }
+
+    //Overrides
+    public abstract void calculeazaDobanda();
+
+    public abstract void afiseazaDetalii();
 }
