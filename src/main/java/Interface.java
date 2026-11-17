@@ -4,15 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class Interfata1 extends JFrame {
+public class Interface extends JFrame {
 
-    private ArrayList<Plata> listaPlati;
-    private ArrayList<Transfer> listaTransferuri;
+    private ArrayList<Payment> listaPlati;
+    private ArrayList<TRANSFER> listaTransferuri;
 
     private JTextField txtValoare;
     private JTextArea txtRezultate;
 
-    public Interfata1(ArrayList<Plata> plati, ArrayList<Transfer> transferuri) {
+    public Interface(ArrayList<Payment> plati, ArrayList<TRANSFER> transferuri) {
         this.listaPlati = plati;
         this.listaTransferuri = transferuri;
 
@@ -55,15 +55,15 @@ public class Interfata1 extends JFrame {
                 txtRezultate.append("=== VERIFICARE TENTATIVE FRAUDĂ ===\n");
 
                 boolean gasit = false;
-                for (Plata p : listaPlati) {
+                for (Payment p : listaPlati) {
                     if (p.getIplata() != null && p.getIplata().length() < 5) {
                         txtRezultate.append("[SUSPECT] Plată: " + p.toString() + "\n");
                         gasit = true;
                     }
                 }
-                for (Transfer t : listaTransferuri) {
+                for (TRANSFER t : listaTransferuri) {
                     if (t.getIdT() != null && t.getIdT().length() < 5) {
-                        txtRezultate.append("[SUSPECT] Transfer: " + t.toString() + "\n");
+                        txtRezultate.append("[SUSPECT] TRANSFER: " + t.toString() + "\n");
                         gasit = true;
                     }
                 }
@@ -88,15 +88,15 @@ public class Interfata1 extends JFrame {
                     txtRezultate.append("=== REZULTATE FILTRARE DUPĂ SUMA >= " + sumaMinima + " ===\n");
 
                     boolean gasit = false;
-                    for (Plata p : listaPlati) {
+                    for (Payment p : listaPlati) {
                         if (p.getSuma1() >= sumaMinima) {
                             txtRezultate.append("Plată: " + p.toString() + "\n");
                             gasit = true;
                         }
                     }
-                    for (Transfer t : listaTransferuri) {
+                    for (TRANSFER t : listaTransferuri) {
                         if (t.getSuma2() >= sumaMinima) {
-                            txtRezultate.append("Transfer: " + t.toString() + "\n");
+                            txtRezultate.append("TRANSFER: " + t.toString() + "\n");
                             gasit = true;
                         }
                     }
