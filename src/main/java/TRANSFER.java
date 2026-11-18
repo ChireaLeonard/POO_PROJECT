@@ -73,16 +73,16 @@ public class TRANSFER extends Payment {
         this.idT = c.idT;
         this.sum3 = c.sum3;
     }
-
+    @Override
     public double Tax() {
         double comision = 0.1 * this.sum3;
         return this.sum3 - comision;
     }
-
+    @Override
     public String toString() {
         return "Time of transfer:" + this.timeoftransfer + "Account source of the transfer :" + this.accs + "Account destination of the transfer:" + this.accd + "Id of the transfer is :" + this.idT + "Sum of the money for the transfer is :" + this.sum3;
     }
-
+    @Override
     public String Verifysum() {
         if (this.sum3 > (double)0.0F) {
             return " The money is : " + this.sum3;
