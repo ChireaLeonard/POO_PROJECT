@@ -5,6 +5,18 @@ public abstract class Transaction {
     public Transaction() {
         super();
     }
+    public Transaction (){
+        idTransaction = "none";
+        sum1 = 0;
+    }
+    public Transaction (String idTransaction, double sum1){
+        this.idTransaction= idTransaction;
+        this.sum1= sum1;
+    }
+    public Transaction (Transaction d){
+        idTransaction = d.idTransaction;
+        sum1= d.idTransaction;
+    }
 
     public String getiTranzactie() {
         return this.idTransaction;
