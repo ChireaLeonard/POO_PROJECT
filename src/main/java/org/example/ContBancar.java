@@ -8,7 +8,7 @@ public abstract class ContBancar implements OperatiiBancare
     protected double sold;
     protected String numeBeneficiar;
     protected Moneda moneda;
-    protected ArrayList<String> tranzactii;
+    //protected ArrayList<String> tranzactii;
 
     //Constructro cu toti parametrii
     public ContBancar(String iban, double sold, String numeBeneficiar, Moneda moneda)
