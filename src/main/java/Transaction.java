@@ -14,8 +14,8 @@ public abstract class Transaction {
         this.sum1= sum1;
     }
     public Transaction (Transaction d){
-        idTransaction = d.idTransaction;
-        sum1= d.idTransaction;
+      this  idTransaction = d.idTransaction;
+         this sum1= d.idTransaction;
     }
 
     public String getiTranzactie() {
