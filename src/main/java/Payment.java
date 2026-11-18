@@ -59,7 +59,7 @@ public class Payment extends Transaction {
         this.nameuser = a.nameuser;
         this.sum2 = a.sum2;
     }
-
+    @Override
     public double Tax() {
         double comision = 0.2 * this.sum2;
         return this.sum2 - comision;
@@ -68,7 +68,7 @@ public class Payment extends Transaction {
     public String toString() {
         return "Id of the payment :" + this.idpayment + "Currency:" + this.currency + " Name of the user:" + this.nameuser + " The sum is :" + this.sum2;
     }
-
+    @Override
     public String Verifysum() {
         if (this.sum2 > (double)0.0F) {
             return " The money is:  " + this.sum2;
