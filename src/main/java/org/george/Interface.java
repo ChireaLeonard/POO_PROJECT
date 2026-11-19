@@ -19,7 +19,7 @@ public class Interface extends JFrame {
         this.listaTransferuri = transferuri;
 
 
-        setTitle("Interfață Gestionare Tranzacții - POO");
+        setTitle("Interface POO");
         setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -31,12 +31,12 @@ public class Interface extends JFrame {
         JPanel panelSus = new JPanel();
         panelSus.setLayout(new FlowLayout());
 
-        panelSus.add(new JLabel("Valoare / Lungime ID:"));
+        panelSus.add(new JLabel("Numbers / length of ids"));
         txtValoare = new JTextField(10);
         panelSus.add(txtValoare);
 
-        JButton btnFrauda = new JButton("Verifică Fraude ID (<5)");
-        JButton btnSuma = new JButton("Filtrează după Sumă Minimă");
+        JButton btnFrauda = new JButton("Verifying id frauds (<5)");
+        JButton btnSuma = new JButton("Filter after minimal sum of money ");
 
         panelSus.add(btnFrauda);
         panelSus.add(btnSuma);
@@ -54,12 +54,12 @@ public class Interface extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtRezultate.setText("");
-                txtRezultate.append("=== VERIFICARE TENTATIVE FRAUDĂ ===\n");
+                txtRezultate.append("Verifying Fraud attemps ");
 
                 boolean gasit = false;
                 for (Payment p : listaPlati) {
                     if (p.getIplata() != null && p.getIplata().length() < 5) {
-                        txtRezultate.append("[SUSPECT] Plată: " + p.toString() + "\n");
+                        txtRezultate.append("[SUSPECT] Payment: " + p.toString() + "\n");
                         gasit = true;
                     }
                 }
@@ -70,7 +70,7 @@ public class Interface extends JFrame {
                     }
                 }
                 if (!gasit) {
-                    txtRezultate.append("Nu s-au detectat ID-uri suspecte.\n");
+                    txtRezultate.append("No issues  detected, all good .\n");
                 }
             }
         });
@@ -82,17 +82,17 @@ public class Interface extends JFrame {
                 try {
                     double sumaMinima = Double.parseDouble(txtValoare.getText());
                     if (sumaMinima < 0) {
-                        JOptionPane.showMessageDialog(null, "Suma nu poate fi negativă!", "Eroare", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Sum cannot be negative !", "Eror", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
 
                     txtRezultate.setText("");
-                    txtRezultate.append("=== REZULTATE FILTRARE DUPĂ SUMA >= " + sumaMinima + " ===\n");
+                    txtRezultate.append("=== Rezults filtred by sums that are higher then this  >= " + sumaMinima + " ===\n");
 
                     boolean gasit = false;
                     for (Payment p : listaPlati) {
                         if (p.getSuma1() >= sumaMinima) {
-                            txtRezultate.append("Plată: " + p.toString() + "\n");
+                            txtRezultate.append("Payments: " + p.toString() + "\n");
                             gasit = true;
                         }
                     }
@@ -103,11 +103,11 @@ public class Interface extends JFrame {
                         }
                     }
                     if (!gasit) {
-                        txtRezultate.append("Niciun rezultat găsit peste această sumă.\n");
+                        txtRezultate.append("No sums found .\n");
                     }
 
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "Te rog introdu un număr valid în căsuță!", "Eroare de format", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Please enter a valid number !", "Formating  error!", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
