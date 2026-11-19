@@ -5,17 +5,14 @@ public abstract class Transaction {
     public Transaction() {
         super();
     }
-    public Transaction (){
-        idTransaction = "none";
-        sum1 = 0;
-    }
+    
     public Transaction (String idTransaction, double sum1){
         this.idTransaction= idTransaction;
         this.sum1= sum1;
     }
     public Transaction (Transaction d){
-      this  idTransaction = d.idTransaction;
-         this sum1= d.idTransaction;
+      this.idTransaction = d.idTransaction;
+         this.sum1= d.sum1;
     }
 
     public String getiTranzactie() {
