@@ -1,4 +1,4 @@
-package org.Card;
+package org.card;
 
 public class BankCard implements IOperations {
     private String cardNumber;

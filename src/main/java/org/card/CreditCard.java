@@ -1,4 +1,4 @@
-package org.Card;
+package org.card;
 
 public class CreditCard extends BankCard{
     private double maximumFunds;

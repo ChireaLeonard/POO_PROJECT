@@ -1,19 +1,21 @@
-package org.Card;
+package org.card;
+
+import org.leonard.Currency;
 
 public class DebitCard extends BankCard {
     private String swiftCode;
-    private String mainCurrency;
+    private Currency mainCurrency;
     private double cardLimit;
 
     public DebitCard()
     {
         super();
         swiftCode = "AAAAAAAAAAA";
-        mainCurrency = "RON";
+        mainCurrency = Currency.EUR;
         cardLimit = 0;
     }
 
-    public DebitCard(String cardNumber, String cardHolder, int expirationMonth, int expirationYear, String verificationCode,double funds, boolean cardBlocked, String swiftCode, String mainCurrency, double cardLimit)
+    public DebitCard(String cardNumber, String cardHolder, int expirationMonth, int expirationYear, String verificationCode,double funds, boolean cardBlocked, String swiftCode, Currency mainCurrency, double cardLimit)
     {
         super(cardNumber,cardHolder,expirationMonth,expirationYear,verificationCode,funds,cardBlocked);
         this.swiftCode = swiftCode;
@@ -32,8 +34,8 @@ public class DebitCard extends BankCard {
     public String getSwiftCode() { return swiftCode; }
     public void setSwiftCode(String swiftCode) { this.swiftCode = swiftCode; }
 
-    public String getMainCurrency() { return mainCurrency; }
-    public void setMainCurrency(String mainCurrency) { this.mainCurrency = mainCurrency; }
+    public Currency getMainCurrency() { return mainCurrency; }
+    public void setMainCurrency(Currency mainCurrency) { this.mainCurrency = mainCurrency; }
 
     public double getCardLimit() { return cardLimit; }
     public void setCardLimit(double cardLimit) { this.cardLimit = cardLimit; }

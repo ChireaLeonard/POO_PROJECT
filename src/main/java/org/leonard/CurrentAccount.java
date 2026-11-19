@@ -1,4 +1,4 @@
-package org.example.leo;
+package org.leonard;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

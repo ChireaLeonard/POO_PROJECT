@@ -1,4 +1,4 @@
-package org.example.leo;
+package org.leonard;
 
 public interface BankOperations {
     void withdraw(double sum);

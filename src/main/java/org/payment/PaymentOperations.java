@@ -1,4 +1,4 @@
-package org.Payment;
+package org.payment;
 
 public interface PaymentOperations {
     boolean validate();

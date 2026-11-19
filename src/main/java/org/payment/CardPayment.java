@@ -1,14 +1,14 @@
-package org.Payment;
+package org.payment;
 
-import org.Card.BankCard;
-import org.example.Moneda;
+import org.card.BankCard;
+import org.leonard.Currency;
 
 import java.time.LocalDate;
 
 public class CardPayment extends Payment {
     private BankCard card;
 
-    public CardPayment(double amount, String beneficiary, Moneda currency, BankCard card) {
+    public CardPayment(double amount, String beneficiary, Currency currency, BankCard card) {
         super(amount, beneficiary, currency);
         this.card = card;
     }
@@ -19,7 +19,7 @@ public class CardPayment extends Payment {
     }
 
     public CardPayment(double amount, String beneficiary, BankCard card) {
-        this(amount, beneficiary, Moneda.EUR, card);
+        this(amount, beneficiary, Currency.EUR, card);
     }
 
     public CardPayment(CardPayment other) {

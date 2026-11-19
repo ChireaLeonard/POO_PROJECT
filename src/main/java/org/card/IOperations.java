@@ -1,4 +1,4 @@
-package org.Card;
+package org.card;
 
 public interface IOperations {
     boolean cardLimitReached(double sum);
