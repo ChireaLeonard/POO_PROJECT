@@ -5,20 +5,26 @@ public class BankCard implements IOperations {
     private String cardHolder;
     private int expirationMonth, expirationYear;
     private String verificationCode;
+    private double funds;
+    private boolean cardBlocked;
 
     public BankCard(){
         cardNumber = "0000000000000000";
         cardHolder = "Unknown";
         expirationMonth = 1; expirationYear = 2000;
         verificationCode = "000";
+        funds = 0;
+        cardBlocked = false;
     }
 
-    public BankCard(String cardNumber, String cardHolder, int expirationMonth, int expirationYear, String verificationCode)
+    public BankCard(String cardNumber, String cardHolder, int expirationMonth, int expirationYear, String verificationCode, double funds, boolean cardBlocked)
     {
         this.cardNumber = cardNumber;
         this.cardHolder = cardHolder;
         this.expirationMonth = expirationMonth; this.expirationYear = expirationYear;
         this.verificationCode = verificationCode;
+        this.funds = funds;
+        this.cardBlocked = cardBlocked;
     }
 
     public BankCard(BankCard c)
@@ -27,6 +33,8 @@ public class BankCard implements IOperations {
         this.cardHolder = c.cardHolder;
         this.expirationMonth = c.expirationMonth; this.expirationYear = c.expirationYear;
         this.verificationCode = c.verificationCode;
+        this.funds = c.funds;
+        this.cardBlocked = c.cardBlocked;
     }
 
     public String getCardNumber() { return cardNumber; }
@@ -44,14 +52,30 @@ public class BankCard implements IOperations {
     public String getVerificationCode() { return verificationCode; }
     public void setVerificationCode(String verificationCode) { this.verificationCode = verificationCode; }
 
-    @Override
-    public double availableFunds() { return 0; }
+    public double getFunds() { return funds; }
+    public void setFunds(double funds) { this.funds = funds; }
+    public void decreaseFunds(double nr) { funds -= nr; }
+    public void increaseFunds(double nr) { funds += nr; }
+
+    public boolean isCardBlocked() { return cardBlocked; }
+    public void setCardBlocked(boolean cardBlocked) { this.cardBlocked = cardBlocked; }
 
     @Override
-    public boolean acceptPayment(double suma) { return false; }
+    public boolean cardLimitReached(double sum) { return false; }
+
+    @Override
+    public boolean acceptPayment(double sum) { return false; }
 
     @Override
     public String toString() {
-        return "Name: " + cardHolder + "\n" + "Card number: " + cardNumber + "\n" + "Expiration date: " + expirationMonth + "/" + expirationYear + "\n" + "Verification code: " + verificationCode;
+        return "BankCard{" +
+                "Card Number='" + cardNumber + '\'' +
+                ", Card Holder='" + cardHolder + '\'' +
+                ", Expiration Month=" + expirationMonth +
+                ", Expiration Year=" + expirationYear +
+                ", Verification Code='" + verificationCode + '\'' +
+                ", Funds=" + funds +
+                ", Card Blocked=" + cardBlocked +
+                '}';
     }
 }
