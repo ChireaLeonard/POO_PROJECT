@@ -1,11 +1,11 @@
-package org.Payment;
+package org.payment;
 
-import org.example.Moneda;
+import org.leonard.Currency;
 
 public class CashPayment extends Payment {
     private double amountReceived;
 
-    public CashPayment(double amount, String beneficiary, Moneda currency, double amountReceived) {
+    public CashPayment(double amount, String beneficiary, Currency currency, double amountReceived) {
         super(amount, beneficiary, currency);
         this.amountReceived = amountReceived;
     }
@@ -16,7 +16,7 @@ public class CashPayment extends Payment {
     }
 
     public CashPayment(double amount, String beneficiary, double amountReceived) {
-        this(amount, beneficiary, Moneda.EUR, amountReceived);
+        this(amount, beneficiary, Currency.EUR, amountReceived);
     }
 
     public CashPayment(CashPayment other) {

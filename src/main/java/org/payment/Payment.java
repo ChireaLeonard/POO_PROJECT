@@ -1,24 +1,24 @@
-package org.Payment;
+package org.payment;
 
-import org.example.Moneda;
+import org.leonard.Currency;
 
 public abstract class Payment implements PaymentOperations {
     protected double amount;
     protected String beneficiary;
-    protected Moneda currency;
+    protected Currency currency;
 
-    public Payment(double amount, String beneficiary, Moneda currency) {
+    public Payment(double amount, String beneficiary, Currency currency) {
         this.amount = amount;
         this.beneficiary = beneficiary;
         this.currency = currency;
     }
 
     public Payment() {
-        this(0.0, "", Moneda.EUR);
+        this(0.0, "", Currency.EUR);
     }
 
     public Payment(double amount, String beneficiary) {
-        this(amount, beneficiary, Moneda.EUR);
+        this(amount, beneficiary, Currency.EUR);
     }
 
     public Payment(Payment other) {
@@ -41,11 +41,11 @@ public abstract class Payment implements PaymentOperations {
         this.beneficiary = beneficiary;
     }
 
-    public Moneda getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
-    public void setCurrency(Moneda currency) {
+    public void setCurrency(Currency currency) {
         this.currency = currency;
     }
 
