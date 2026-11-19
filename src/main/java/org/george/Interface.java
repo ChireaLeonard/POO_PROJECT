@@ -1,3 +1,5 @@
+package org.george;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

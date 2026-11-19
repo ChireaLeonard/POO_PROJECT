@@ -1,4 +1,6 @@
-public abstract class Transaction {
+package org.george;
+
+public abstract class Transaction implements TransactionOperations {
     private String idTransaction;
     private double sum1;
 
@@ -29,19 +31,6 @@ public abstract class Transaction {
 
     public void setSuma(double sum1) {
         this.sum1 = sum1;
-    }
-
-    public String Verifysum() {
-        if (this.sum1 > (double)0.0F) {
-            return " The money is:  " + this.sum1;
-        } else {
-            return this.sum1 == (double)0.0F ? " Its zero : " + this.sum1 : " Not enough money " + this.sum1;
-        }
-    }
-
-    public double Tax() {
-        double comision = 0.05 * this.sum1;
-        return this.sum1 - comision;
     }
 
     public String verifyconnection(boolean Online) {

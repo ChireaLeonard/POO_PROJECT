@@ -1,3 +1,7 @@
+package org.george;
+
+import org.leonard.Currency;
+
 public class TRANSFER extends Payment {
     private int timeoftransfer;
     private String accs;
@@ -54,7 +58,7 @@ public class TRANSFER extends Payment {
         this.sum3 = (double)0.0F;
     }
 
-    public TRANSFER(String idpayment, String currency, String nameuser, int timeoftransfer, String accs, String accd, String idT, double sum3) {
+    public TRANSFER(String idpayment, Currency currency, String nameuser, int timeoftransfer, String accs, String accd, String idT, double sum3) {
         super(idpayment,currency, nameuser, sum3);
         this.timeoftransfer = timeoftransfer;
         this.accs = accs;

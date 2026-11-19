@@ -1,6 +1,10 @@
+package org.george;
+
+import org.leonard.Currency;
+
 public class Payment extends Transaction {
     private String idpayment;
-    private String  currency;
+    private Currency currency;
     private String nameuser;
     private double sum2;
 
@@ -20,11 +24,11 @@ public class Payment extends Transaction {
         this.nameuser = nameuser;
     }
 
-    public String getMon() {
+    public Currency getMon() {
         return this.currency;
     }
 
-    public void setMon(String currency) {
+    public void setMon(Currency currency) {
         this.currency = currency;
     }
 
@@ -39,12 +43,12 @@ public class Payment extends Transaction {
     public Payment() {
         super();
         this.idpayment = "Nonexistent";
-        this.currency = "No currency?";
+        this.currency = Currency.EUR;
         this.nameuser = "";
         this.sum2 = (double)0.0F;
     }
 
-    public Payment(String idpayment, String currency, String nameuser, double sum2) {
+    public Payment(String idpayment, Currency currency, String nameuser, double sum2) {
         super();
         this.idpayment = idpayment;
         this.currency = currency;

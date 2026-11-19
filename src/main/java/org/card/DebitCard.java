@@ -68,7 +68,7 @@ public class DebitCard extends BankCard {
     public String toString() {
         return "Debit Card{" +
                 "Swift Code='" + swiftCode + '\'' +
-                ", Main Currency='" + mainCurrency + '\'' +
+                ", Currency='" + mainCurrency + '\'' +
                 ", Card Limit=" + cardLimit +
                 "} " + super.toString();
     }
