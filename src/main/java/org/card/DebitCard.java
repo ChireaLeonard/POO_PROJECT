@@ -46,7 +46,7 @@ public class DebitCard extends BankCard {
         double funds = getFunds();
         if (sum <= funds && !isCardBlocked())
         {
-            funds -= sum;
+            decreaseFunds(sum);
             return true;
         }
         else

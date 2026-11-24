@@ -23,7 +23,7 @@ public class CreditCard extends BankCard{
 
     @Override
     public boolean cardLimitReached(double sum) {
-        if (getFunds() >= maximumFunds)
+        if (getFunds() + sum >= maximumFunds)
         {
             setCardBlocked(true);
             return true;
@@ -37,7 +37,7 @@ public class CreditCard extends BankCard{
     public boolean acceptPayment(double sum)
     {
         cardLimitReached(getFunds());
-        if (sum <= getFunds() && !isCardBlocked())
+        if (sum <= getFunds() && !cardLimitReached(sum))
         {
             increaseFunds(sum);
             return true;
