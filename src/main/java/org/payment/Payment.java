@@ -3,26 +3,32 @@ package org.payment;
 import org.leonard.Currency;
 
 public abstract class Payment implements PaymentOperations {
-    protected double amount;
-    protected String beneficiary;
-    protected Currency currency;
+    private double amount;
+    private String beneficiary;
+    private Currency currency;
+    private String paymentId;
+    private String description;
+    private String paymentDate;
+    private boolean completed;
 
-    public Payment(double amount, String beneficiary, Currency currency) {
+    public Payment() {
+        this(0.0, "", Currency.EUR, "", "", "", false);
+    }
+
+    public Payment(double amount, String beneficiary, Currency currency, String paymentId,
+                   String description, String paymentDate, boolean completed) {
         this.amount = amount;
         this.beneficiary = beneficiary;
         this.currency = currency;
-    }
-
-    public Payment() {
-        this(0.0, "", Currency.EUR);
-    }
-
-    public Payment(double amount, String beneficiary) {
-        this(amount, beneficiary, Currency.EUR);
+        this.paymentId = paymentId;
+        this.description = description;
+        this.paymentDate = paymentDate;
+        this.completed = completed;
     }
 
     public Payment(Payment other) {
-        this(other.amount, other.beneficiary, other.currency);
+        this(other.amount, other.beneficiary, other.currency, other.paymentId,
+                other.description, other.paymentDate, other.completed);
     }
 
     public double getAmount() {
@@ -49,6 +55,38 @@ public abstract class Payment implements PaymentOperations {
         this.currency = currency;
     }
 
+    public String getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPaymentDate() {
+        return paymentDate;
+    }
+
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
     @Override
     public abstract boolean validate();
 
@@ -57,8 +95,12 @@ public abstract class Payment implements PaymentOperations {
 
     @Override
     public String toString() {
-        return "beneficiary=" + beneficiary
+        return "paymentId=" + paymentId
+                + ", beneficiary=" + beneficiary
+                + ", description=" + description
+                + ", date=" + paymentDate
                 + ", amount=" + String.format("%.2f", amount)
-                + " " + currency;
+                + " " + currency
+                + ", completed=" + completed;
     }
 }
