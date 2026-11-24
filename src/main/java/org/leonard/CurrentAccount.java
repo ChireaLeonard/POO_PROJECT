@@ -3,7 +3,7 @@ package org.leonard;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class CurrentAccount extends BankAccount {
+public abstract class CurrentAccount extends BankAccount {
     private static final double DEFAULT_BALANCE = 0.0;
     private static final int LOAN_LIMIT = 850;
     private static final int MIN_SCORE = 300;

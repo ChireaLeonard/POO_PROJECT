@@ -3,7 +3,7 @@ package org.leonard;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class EconomyAccount extends BankAccount {
+public abstract class EconomyAccount extends BankAccount {
     //CONSTANTA PENTRU MINIM LA CONT ECONOMII
     private static final double MINIMUM_BALANCE = 100.0;
     private static final double INTEREST_COEFFICIENT = 0.06;
