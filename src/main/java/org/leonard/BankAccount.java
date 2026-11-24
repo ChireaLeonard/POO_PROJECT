@@ -125,4 +125,6 @@ public abstract class BankAccount implements BankOperations {
         this.isActive = isActive;
     }
 
+    //Overrides
+    public abstract void calculeazaDobanda();
 }
