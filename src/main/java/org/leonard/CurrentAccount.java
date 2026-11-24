@@ -3,7 +3,7 @@ package org.leonard;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public abstract class CurrentAccount extends BankAccount {
+public class CurrentAccount extends BankAccount {
     private static final double DEFAULT_BALANCE = 0.0;
     private static final int LOAN_LIMIT = 850;
     private static final int MIN_SCORE = 300;
@@ -33,6 +33,12 @@ public abstract class CurrentAccount extends BankAccount {
         if (creditScore < MIN_SCORE || creditScore > MAX_SCORE)
             throw new IllegalArgumentException("Credit score must be between " + MIN_SCORE + " and " + MAX_SCORE);
         this.creditScore = creditScore;
+    }
+
+    //COPY CONSTRUCTOR
+    public CurrentAccount(CurrentAccount other) {
+        super(other);
+        this.creditScore = other.creditScore;
     }
 
     boolean getLoanState() {
@@ -65,6 +71,16 @@ public abstract class CurrentAccount extends BankAccount {
     public void setBalance(double balance) {
         if (balance < -creditScoreToLoanLimit()) throw new IllegalArgumentException("Balance is below loan limit");
         super.setBalance(balance);
+    }
+
+    @Override
+    protected String extraDetails() {
+        return "\nCREDIT SCORE:" + this.creditScore;
+    }
+
+    @Override
+    public void displayInterest() {
+        System.out.println("Only an Economy Account generates Interest\n");
     }
 
     public int getCreditScore() {

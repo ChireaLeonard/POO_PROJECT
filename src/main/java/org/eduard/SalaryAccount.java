@@ -63,7 +63,7 @@ public abstract class SalaryAccount extends BankAccount
 
     //Overrides
     @Override
-    public void calculeazaDobanda() { System.out.println("Salary account does not generate standard interest."); }
+    public void displayInterest() { System.out.println("Salary account does not generate standard interest."); }
 
     @Override
     public String toString() {  return super.toString()+", Employer: "+ employer +", Salary: "+ baseSalary; }

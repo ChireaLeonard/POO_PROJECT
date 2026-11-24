@@ -3,7 +3,7 @@ package org.leonard;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public abstract class EconomyAccount extends BankAccount {
+public class EconomyAccount extends BankAccount {
     //CONSTANTA PENTRU MINIM LA CONT ECONOMII
     private static final double MINIMUM_BALANCE = 100.0;
     private static final double INTEREST_COEFFICIENT = 0.06;
@@ -53,6 +53,14 @@ public abstract class EconomyAccount extends BankAccount {
 
     }
 
+    //COPY CONSTUCTOR
+    public EconomyAccount(EconomyAccount other) {
+        super(other);
+        this.maxWithdrawalsPerMonth = other.maxWithdrawalsPerMonth;
+        this.depositDurationMonths = other.depositDurationMonths;
+        this.withdrawalsThisMonth = other.withdrawalsThisMonth;
+    }
+
     private static int maxWithdrawal(double balance) {
         return Math.max((int)balance/100,MINIMUM_WITHDRAWALS);
     }
@@ -88,10 +96,6 @@ public abstract class EconomyAccount extends BankAccount {
         this.withdrawalsThisMonth = 0;
     }
 
-    public double annualInterest() {
-        return getBalance() * INTEREST_COEFFICIENT;
-    }
-
     public int getMonthlyTransactionsCount() {
         return this.withdrawalsThisMonth;
     }
@@ -115,8 +119,24 @@ public abstract class EconomyAccount extends BankAccount {
     }
 
     public void setDepositDurationMonths(int depositDurationMonths) {
-        if (depositDurationMonths < 12 || depositDurationMonths > 24) throw new IllegalArgumentException("Months outside of range!");
+        if (depositDurationMonths < MINIMUM_DURATION || depositDurationMonths > MAXIMUM_DURATION) throw new IllegalArgumentException("Months outside of range!");
         this.depositDurationMonths = depositDurationMonths;
+    }
+
+    public double annualInterest() {
+        return getBalance() * INTEREST_COEFFICIENT;
+    }
+
+    @Override
+    public void displayInterest() {
+        System.out.println("Interest: " + annualInterest() + "\n");
+    }
+
+    @Override
+    protected String extraDetails() {
+        return "\nMAX WITHDRAWALS/MONTH: " + this.maxWithdrawalsPerMonth
+                + " | WITHDRAWALS THIS MONTH: " + this.withdrawalsThisMonth
+                + " | DEPOSIT DURATION: " + this.depositDurationMonths + " months";
     }
 
 }
