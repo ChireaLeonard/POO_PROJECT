@@ -57,5 +57,9 @@ public class Testing_Interface
         {
             System.out.println(a.toString());
         }
+
+        ArrayList<SalaryAccount> vect = new ArrayList<>();
+
+        vect.add(new SalaryAccount("RO", "Name: ", 1000, 4000*1.02, 200, 5.0, "Company ", 10));
     }
 }
