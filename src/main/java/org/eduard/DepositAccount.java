@@ -48,7 +48,7 @@ public abstract class DepositAccount extends BankAccount
 
     //Overrides
     @Override
-    public void calculeazaDobanda()
+    public void displayInterest()
     {
         double castig = depositedAmount * (interestRate / 100) * (monthLength / 12.0);
         System.out.println("Dobânda calculată pentru depozit: " + castig + " " + moneda);

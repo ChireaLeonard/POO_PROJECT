@@ -125,6 +125,30 @@ public abstract class BankAccount implements BankOperations {
         this.isActive = isActive;
     }
 
-    //Overrides
-    public abstract void calculeazaDobanda();
+    public void displayInterest() {
+        return;
+    };
+
+    private String transactionsToString() {
+        if (this.transactions.isEmpty()) {
+            return "\nNo transactions yet. Future transactions will appear here.";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < transactions.size(); i++) {
+            sb.append("\n  ").append(i + 1).append(". ").append(transactions.get(i));
+        }
+        return sb.toString();
+    }
+
+    protected String extraDetails() {
+        return "";
+    }
+
+    @Override
+    public String toString() {
+        return "-=-=-= " + getClass().getSimpleName() + " =-=-=-\n"
+                + "IBAN: " + this.iban + " | BENEFICIARY NAME: " + this.beneficiaryName + " | OPENING DATE: " + this.openingDate
+                + "\nACCOUNT BALANCE: " + this.balance + " " + this.currency + " | ACCOUNT ACTIVITY: " + (this.isActive ? "ACTIVE" : "INACTIVE")
+                + extraDetails() + "\nTRANSACTIONS LIST:" + transactionsToString();
+    }
 }
