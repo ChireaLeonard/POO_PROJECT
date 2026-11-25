@@ -25,6 +25,14 @@ public class CardPayment extends Payment {
         this.contactless = contactless;
     }
 
+    public CardPayment(double amount, String beneficiary, Currency currency, BankCard card) {
+        this(amount, beneficiary, currency, "", "", "", false, card, "", 1, false);
+    }
+
+    public CardPayment(double amount, String beneficiary, BankCard card) {
+        this(amount, beneficiary, Currency.EUR, card);
+    }
+
     public CardPayment(CardPayment other) {
         super(other);
         this.card = other.card == null ? null : new BankCard(other.card);

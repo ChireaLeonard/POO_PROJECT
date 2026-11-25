@@ -22,6 +22,14 @@ public class CashPayment extends Payment {
         this.exactAmount = exactAmount;
     }
 
+    public CashPayment(double amount, String beneficiary, Currency currency, double amountReceived) {
+        this(amount, beneficiary, currency, "", "", "", false, amountReceived, "", "", false);
+    }
+
+    public CashPayment(double amount, String beneficiary, double amountReceived) {
+        this(amount, beneficiary, Currency.EUR, amountReceived);
+    }
+
     public CashPayment(CashPayment other) {
         super(other);
         this.amountReceived = other.amountReceived;

@@ -26,6 +26,14 @@ public abstract class Payment implements PaymentOperations {
         this.completed = completed;
     }
 
+    public Payment(double amount, String beneficiary, Currency currency) {
+        this(amount, beneficiary, currency, "", "", "", false);
+    }
+
+    public Payment(double amount, String beneficiary) {
+        this(amount, beneficiary, Currency.EUR);
+    }
+
     public Payment(Payment other) {
         this(other.amount, other.beneficiary, other.currency, other.paymentId,
                 other.description, other.paymentDate, other.completed);
